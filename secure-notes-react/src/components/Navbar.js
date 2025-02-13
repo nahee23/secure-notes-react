@@ -5,19 +5,18 @@ import { RxCross2 } from "react-icons/rx";
 import { useMyContext } from "../store/ContextApi";
 
 const Navbar = () => {
-  //handle the header opening and closing menu for the tablet/mobile device
+  // 태블릿모바일 사이즈에 햄버거 버튼
   const [headerToggle, setHeaderToggle] = useState(false);
   const pathName = useLocation().pathname;
   const navigate = useNavigate();
 
-  // Access the states by using the useMyContext hook from the ContextProvider
+  // 컨텍스트로 정보를 가져옴
   const { token, setToken, setCurrentUser, isAdmin, setIsAdmin } =
     useMyContext();
 
   const handleLogout = () => {
     localStorage.removeItem("JWT_TOKEN"); // Updated to remove token from localStorage
     localStorage.removeItem("USER"); // Remove user details as well
-    localStorage.removeItem("CSRF_TOKEN");
     localStorage.removeItem("IS_ADMIN");
     setToken(null);
     setCurrentUser(null);

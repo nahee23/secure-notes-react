@@ -30,7 +30,7 @@ export const ContextProvider = ({ children }) => {
 
     if (user?.username) {
       try {
-        //서버에 유저정보를 요청
+        //서버에 현재 유저정보를 요청
         const { data } = await api.get(`/auth/user`);
         const roles = data.roles;
 
